@@ -45,10 +45,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkout = new System.Windows.Forms.TextBox();
+            this.checkin = new System.Windows.Forms.TextBox();
             this.name_textbox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.status_combobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -101,11 +101,11 @@
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.checkout);
+            this.splitContainer1.Panel2.Controls.Add(this.checkin);
             this.splitContainer1.Panel2.Controls.Add(this.name_textbox);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.status_combobox);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1138, 659);
@@ -138,7 +138,9 @@
             this.clients.RowTemplate.Height = 28;
             this.clients.Size = new System.Drawing.Size(600, 528);
             this.clients.TabIndex = 3;
+            this.clients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewInfo);
             this.clients.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewInfo);
+            this.clients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewInfo);
             // 
             // label2
             // 
@@ -247,19 +249,19 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Дата заезда :";
             // 
-            // textBox3
+            // checkout
             // 
-            this.textBox3.Location = new System.Drawing.Point(174, 480);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 5;
+            this.checkout.Location = new System.Drawing.Point(174, 480);
+            this.checkout.Name = "checkout";
+            this.checkout.Size = new System.Drawing.Size(100, 26);
+            this.checkout.TabIndex = 5;
             // 
-            // textBox2
+            // checkin
             // 
-            this.textBox2.Location = new System.Drawing.Point(174, 417);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 4;
+            this.checkin.Location = new System.Drawing.Point(174, 417);
+            this.checkin.Name = "checkin";
+            this.checkin.Size = new System.Drawing.Size(100, 26);
+            this.checkin.TabIndex = 4;
             // 
             // name_textbox
             // 
@@ -269,14 +271,19 @@
             this.name_textbox.TabIndex = 3;
             this.name_textbox.Text = "ФИО";
             // 
-            // comboBox1
+            // status_combobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 216);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "Статус";
+            this.status_combobox.FormattingEnabled = true;
+            this.status_combobox.Items.AddRange(new object[] {
+            "Зарезервировано",
+            "Свободные",
+            "Заняты",
+            "Выписываются"});
+            this.status_combobox.Location = new System.Drawing.Point(118, 216);
+            this.status_combobox.Name = "status_combobox";
+            this.status_combobox.Size = new System.Drawing.Size(121, 28);
+            this.status_combobox.TabIndex = 2;
+            this.status_combobox.Text = "Статус";
             // 
             // label1
             // 
@@ -325,7 +332,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox status_combobox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
@@ -337,8 +344,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox checkout;
+        private System.Windows.Forms.TextBox checkin;
         private System.Windows.Forms.TextBox name_textbox;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
