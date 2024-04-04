@@ -51,6 +51,7 @@
             this.status_combobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,9 +64,10 @@
             // time_label
             // 
             this.time_label.AutoSize = true;
+            this.time_label.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.time_label.Location = new System.Drawing.Point(13, 13);
             this.time_label.Name = "time_label";
-            this.time_label.Size = new System.Drawing.Size(51, 20);
+            this.time_label.Size = new System.Drawing.Size(68, 18);
             this.time_label.TabIndex = 0;
             this.time_label.Text = "label1";
             // 
@@ -98,6 +100,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Teal;
+            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
@@ -109,34 +112,36 @@
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1138, 659);
-            this.splitContainer1.SplitterDistance = 794;
+            this.splitContainer1.SplitterDistance = 805;
             this.splitContainer1.TabIndex = 2;
             // 
             // button2
             // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(727, 13);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 47);
+            this.button2.Size = new System.Drawing.Size(47, 47);
             this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(196, 13);
+            this.textBox4.Location = new System.Drawing.Point(239, 12);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(524, 47);
+            this.textBox4.Size = new System.Drawing.Size(482, 47);
             this.textBox4.TabIndex = 4;
             // 
             // clients
             // 
             this.clients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clients.Location = new System.Drawing.Point(191, 119);
+            this.clients.Location = new System.Drawing.Point(221, 119);
             this.clients.Name = "clients";
             this.clients.RowHeadersWidth = 62;
             this.clients.RowTemplate.Height = 28;
-            this.clients.Size = new System.Drawing.Size(600, 528);
+            this.clients.Size = new System.Drawing.Size(570, 528);
             this.clients.TabIndex = 3;
             this.clients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewInfo);
             this.clients.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewInfo);
@@ -146,7 +151,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(191, 75);
+            this.label2.Location = new System.Drawing.Point(234, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 27);
             this.label2.TabIndex = 2;
@@ -162,24 +167,26 @@
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Location = new System.Drawing.Point(4, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 647);
+            this.panel1.Size = new System.Drawing.Size(211, 647);
             this.panel1.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(13, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.Size = new System.Drawing.Size(68, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Статус";
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton4.Location = new System.Drawing.Point(3, 212);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(149, 24);
+            this.radioButton4.Size = new System.Drawing.Size(153, 22);
             this.radioButton4.TabIndex = 8;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Выписываются";
@@ -189,9 +196,10 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton3.Location = new System.Drawing.Point(3, 181);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(92, 24);
+            this.radioButton3.Size = new System.Drawing.Size(93, 22);
             this.radioButton3.TabIndex = 7;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Заняты";
@@ -201,9 +209,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton2.Location = new System.Drawing.Point(3, 150);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(121, 24);
+            this.radioButton2.Size = new System.Drawing.Size(123, 22);
             this.radioButton2.TabIndex = 6;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Свободные";
@@ -213,9 +222,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton1.Location = new System.Drawing.Point(3, 119);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(170, 24);
+            this.radioButton1.Size = new System.Drawing.Size(183, 22);
             this.radioButton1.TabIndex = 5;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Зарезервировано";
@@ -234,18 +244,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(30, 486);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 20);
+            this.label5.Size = new System.Drawing.Size(138, 18);
             this.label5.TabIndex = 7;
             this.label5.Text = "Дата выезда :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(30, 420);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.Size = new System.Drawing.Size(138, 18);
             this.label4.TabIndex = 6;
             this.label4.Text = "Дата заезда :";
             // 
@@ -279,7 +291,7 @@
             "Свободные",
             "Заняты",
             "Выписываются"});
-            this.status_combobox.Location = new System.Drawing.Point(118, 216);
+            this.status_combobox.Location = new System.Drawing.Point(148, 276);
             this.status_combobox.Name = "status_combobox";
             this.status_combobox.Size = new System.Drawing.Size(121, 28);
             this.status_combobox.TabIndex = 2;
@@ -288,7 +300,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 216);
+            this.label1.Location = new System.Drawing.Point(26, 276);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 1;
@@ -296,11 +308,18 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(30, 82);
+            this.pictureBox1.Location = new System.Drawing.Point(69, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(195, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(138, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 9;
             // 
             // MainForm
             // 
@@ -310,6 +329,8 @@
             this.Controls.Add(this.time_label);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "Главная форма";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -350,6 +371,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

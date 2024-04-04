@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Card));
             this.label = new System.Windows.Forms.Label();
-            this.SNP_textbox = new System.Windows.Forms.TextBox();
+            this.name_textbox = new System.Windows.Forms.TextBox();
             this.birth_textbox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,6 +38,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,13 +54,13 @@
             this.label.TabIndex = 0;
             this.label.Text = "Карточка гостя";
             // 
-            // SNP_textbox
+            // name_textbox
             // 
-            this.SNP_textbox.Location = new System.Drawing.Point(49, 93);
-            this.SNP_textbox.Multiline = true;
-            this.SNP_textbox.Name = "SNP_textbox";
-            this.SNP_textbox.Size = new System.Drawing.Size(290, 55);
-            this.SNP_textbox.TabIndex = 1;
+            this.name_textbox.Location = new System.Drawing.Point(49, 93);
+            this.name_textbox.Multiline = true;
+            this.name_textbox.Name = "name_textbox";
+            this.name_textbox.Size = new System.Drawing.Size(290, 55);
+            this.name_textbox.TabIndex = 1;
             // 
             // birth_textbox
             // 
@@ -101,7 +102,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(54, 461);
+            this.checkBox1.Location = new System.Drawing.Point(49, 436);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(242, 24);
             this.checkBox1.TabIndex = 6;
@@ -128,11 +129,19 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Дата рождения :";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(267, 345);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 9;
+            // 
             // Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 494);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox1);
@@ -140,7 +149,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.birth_textbox);
-            this.Controls.Add(this.SNP_textbox);
+            this.Controls.Add(this.name_textbox);
             this.Controls.Add(this.label);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Card";
@@ -154,7 +163,7 @@
         #endregion
 
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.TextBox SNP_textbox;
+        private System.Windows.Forms.TextBox name_textbox;
         private System.Windows.Forms.TextBox birth_textbox;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
@@ -162,5 +171,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

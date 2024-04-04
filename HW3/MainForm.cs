@@ -11,7 +11,7 @@ namespace HW3
         public static string path = "C:\\Users\\ламлеса\\source\\repos\\HW3\\HW3\\DataBase\\Hotel.db";
         public static SQLiteConnection connection = new SQLiteConnection();
         public static SQLiteCommand command = new SQLiteCommand();
-
+        
         public MainForm()
         {
             InitializeComponent();
@@ -42,8 +42,39 @@ namespace HW3
 
         private void ShowCard(object sender, EventArgs e)
         {
-            var form = new Card(1);
-            form.Show();
+            if(clients.SelectedRows.Count > 0)
+            {
+
+                command.Connection = connection;
+                connection.ConnectionString = @"Data Source=" + path + ";New=False;Version=3";
+                var dt = new DataTable();
+
+
+                connection.Open();
+                var room = int.Parse(clients.CurrentRow.Cells[0].Value.ToString());
+                command.CommandText = "Select * from Clients WHERE `Номер` = @room";
+                command.Parameters.AddWithValue("@room", room);
+
+
+                var reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                 
+                    var form = new Card(reader.GetString(0));
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Нет данных об этом пользователе.");
+                }
+                reader.Close();
+                dt.Clear();
+
+                connection.Close();
+
+
+            }
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -129,11 +160,13 @@ namespace HW3
                 var reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                   
+                    textBox1.Text = reader.GetString(0);
                     name_textbox.Text = reader.GetString(1);
                     status_combobox.SelectedItem = reader.GetString(2);
                     checkin.Text = reader.GetString(3);
                     checkout.Text = reader.GetString(4);
+                    pictureBox1.ImageLocation = "C:\\Users\\ламлеса\\source\\repos\\HW3\\HW3\\Pictures\\" + reader.GetString(1) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
                 else
                 {
@@ -141,7 +174,7 @@ namespace HW3
                 }
                 reader.Close();
                 dt.Clear();
-               
+                
                 connection.Close();
                 
                 
@@ -153,6 +186,11 @@ namespace HW3
 
             }
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
