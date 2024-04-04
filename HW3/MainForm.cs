@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SQLite;
+
 using Microsoft.Data.Sqlite;
 
 namespace HW3
@@ -52,7 +53,7 @@ namespace HW3
 
                 connection.Open();
                 var room = int.Parse(clients.CurrentRow.Cells[0].Value.ToString());
-                command.CommandText = "Select * from Clients WHERE `Номер` = @room";
+                command.CommandText = "Select `Номер`,`ФИО`,`Дата Рождения` from Clients WHERE `Номер` = @room";
                 command.Parameters.AddWithValue("@room", room);
 
 
@@ -85,7 +86,7 @@ namespace HW3
             clients.DataSource = dt; 
             string state = "Зарезервировано";
             connection.Open(); 
-            command.CommandText = "Select * from Clients WHERE `Статус` = @status";
+            command.CommandText = "Select `Номер`,`ФИО`,`Дата рождения` from Clients WHERE `Статус` = @status";
             command.Parameters.AddWithValue("@status", state);
 
             dt.Clear();
@@ -101,7 +102,7 @@ namespace HW3
             clients.DataSource = dt; // связываешь DataTable и таблицу на форме (просто dt)
             string state = "Свободные";
             connection.Open(); // открываешь соединение с БД
-            command.CommandText = "Select * from Clients WHERE `Статус` = @status";
+            command.CommandText = "Select `Номер`,`ФИО`,`Дата рождения` from Clients WHERE `Статус` = @status";
             command.Parameters.AddWithValue("@status", state);
 
             dt.Clear();
@@ -117,7 +118,7 @@ namespace HW3
             clients.DataSource = dt;
             string state = "Заняты";
             connection.Open(); 
-            command.CommandText = "Select * from Clients WHERE `Статус` = @status";
+            command.CommandText = "Select `Номер`,`ФИО`,`Дата рождения` from Clients WHERE `Статус` = @status";
             command.Parameters.AddWithValue("@status", state);
 
             dt.Clear();
@@ -133,7 +134,7 @@ namespace HW3
             clients.DataSource = dt; 
             string state = "Выписываются";
             connection.Open(); 
-            command.CommandText = "Select * from Clients WHERE `Статус` = @status";
+            command.CommandText = "Select `Номер`,`ФИО`,`Дата рождения` from Clients WHERE `Статус` = @status";
             command.Parameters.AddWithValue("@status", state);
 
             dt.Clear();
@@ -165,8 +166,8 @@ namespace HW3
                     status_combobox.SelectedItem = reader.GetString(2);
                     checkin.Text = reader.GetString(3);
                     checkout.Text = reader.GetString(4);
-                    pictureBox1.ImageLocation = "C:\\Users\\ламлеса\\source\\repos\\HW3\\HW3\\Pictures\\" + reader.GetString(1) + ".jpg";
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    u_pic.ImageLocation = "C:\\Users\\ламлеса\\source\\repos\\HW3\\HW3\\Pictures\\" + reader.GetString(1) + ".jpg";
+                    u_pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
                 else
                 {
@@ -190,7 +191,20 @@ namespace HW3
 
         private void button2_Click(object sender, EventArgs e)
         {
+            command.Connection = connection;
+            connection.ConnectionString = @"Data Source=" + path + ";New=False;Version=3";
+            var dt = new DataTable();
+            clients.DataSource = dt;
+            string room = search.Text;
+            connection.Open();
+            command.CommandText = "Select `Номер`,`ФИО`,`Дата рождения` from Clients WHERE `Номер` = @room";
+            command.Parameters.AddWithValue("@status", room);
 
+            dt.Clear();
+            dt.Load(command.ExecuteReader());
+            connection.Close();
         }
+
+        
     }
 }
