@@ -42,7 +42,7 @@
             this.occupied = new System.Windows.Forms.RadioButton();
             this.empty = new System.Windows.Forms.RadioButton();
             this.booked = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.room = new System.Windows.Forms.TextBox();
             this.num_label = new System.Windows.Forms.Label();
             this.co_label = new System.Windows.Forms.Label();
             this.ci_label = new System.Windows.Forms.Label();
@@ -101,7 +101,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Teal;
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.room);
             this.splitContainer1.Panel2.Controls.Add(this.num_label);
             this.splitContainer1.Panel2.Controls.Add(this.co_label);
             this.splitContainer1.Panel2.Controls.Add(this.ci_label);
@@ -125,7 +125,7 @@
             this.search_button.Size = new System.Drawing.Size(47, 47);
             this.search_button.TabIndex = 5;
             this.search_button.UseVisualStyleBackColor = true;
-            this.search_button.Click += new System.EventHandler(this.button2_Click);
+            this.search_button.Click += new System.EventHandler(this.Search);
             // 
             // search
             // 
@@ -137,7 +137,7 @@
             // 
             // clients
             // 
-            this.clients.BackgroundColor = System.Drawing.Color.OldLace;
+            this.clients.BackgroundColor = System.Drawing.Color.Pink;
             this.clients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clients.Location = new System.Drawing.Point(233, 114);
             this.clients.Name = "clients";
@@ -195,7 +195,7 @@
             this.getting.TabStop = true;
             this.getting.Text = "Выписываются";
             this.getting.UseVisualStyleBackColor = true;
-            this.getting.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.getting.CheckedChanged += new System.EventHandler(this.ShowGetting);
             // 
             // occupied
             // 
@@ -208,7 +208,7 @@
             this.occupied.TabStop = true;
             this.occupied.Text = "Заняты";
             this.occupied.UseVisualStyleBackColor = true;
-            this.occupied.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.occupied.CheckedChanged += new System.EventHandler(this.ShowOccupied);
             // 
             // empty
             // 
@@ -221,7 +221,7 @@
             this.empty.TabStop = true;
             this.empty.Text = "Свободные";
             this.empty.UseVisualStyleBackColor = true;
-            this.empty.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.empty.CheckedChanged += new System.EventHandler(this.ShowEmpty);
             // 
             // booked
             // 
@@ -234,18 +234,18 @@
             this.booked.TabStop = true;
             this.booked.Text = "Зарезервировано";
             this.booked.UseVisualStyleBackColor = true;
-            this.booked.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.booked.CheckedChanged += new System.EventHandler(this.ShowBooked);
             // 
-            // textBox1
+            // room
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Teal;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(203, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 30);
-            this.textBox1.TabIndex = 9;
+            this.room.BackColor = System.Drawing.Color.Teal;
+            this.room.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.room.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.room.Location = new System.Drawing.Point(203, 25);
+            this.room.Multiline = true;
+            this.room.Name = "room";
+            this.room.Size = new System.Drawing.Size(54, 30);
+            this.room.TabIndex = 9;
             // 
             // num_label
             // 
@@ -284,8 +284,10 @@
             this.checkout.Location = new System.Drawing.Point(121, 509);
             this.checkout.Multiline = true;
             this.checkout.Name = "checkout";
+            this.checkout.ReadOnly = true;
             this.checkout.Size = new System.Drawing.Size(180, 50);
             this.checkout.TabIndex = 5;
+            this.checkout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // checkin
             // 
@@ -293,15 +295,18 @@
             this.checkin.Location = new System.Drawing.Point(121, 421);
             this.checkin.Multiline = true;
             this.checkin.Name = "checkin";
+            this.checkin.ReadOnly = true;
             this.checkin.Size = new System.Drawing.Size(180, 50);
             this.checkin.TabIndex = 4;
+            this.checkin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // name_textbox
             // 
-            this.name_textbox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.name_textbox.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.name_textbox.Location = new System.Drawing.Point(20, 331);
             this.name_textbox.Multiline = true;
             this.name_textbox.Name = "name_textbox";
+            this.name_textbox.ReadOnly = true;
             this.name_textbox.Size = new System.Drawing.Size(281, 50);
             this.name_textbox.TabIndex = 3;
             this.name_textbox.Text = "ФИО";
@@ -388,7 +393,7 @@
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Label num_label;
         private System.Windows.Forms.Button search_button;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox room;
     }
 }
 
